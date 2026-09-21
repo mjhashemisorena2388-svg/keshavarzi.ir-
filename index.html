@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>زمین‌های کشاورزی فروشگاه میر جلیل هاشمی</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --leaf-100:#F4FBF4;
+    --leaf-200:#DFF3E0;
+    --leaf-400:#79C97E;
+    --leaf-500:#4CAF50;
+    --leaf-600:#357A38;
+    --soil-800:#2C4A2C;
+    --soil-900:#1E331F;
+    --ink:#1E331F;
+    --ink-soft:#5C7A5D;
+    --paper:#FFFFFF;
+    --line: rgba(30,51,31,0.12);
+    --shadow: 0 18px 40px -18px rgba(44,74,44,0.32);
+    --radius-lg: 26px;
+    --radius-md: 18px;
+    font-size: 16px;
+  }
+  html{box-sizing:border-box; scroll-behavior:smooth; scroll-padding-top: calc(env(safe-area-inset-top,0px) + 78px);}
+  *,*::before,*::after{box-sizing:inherit;}
+  body{
+    margin:0;
+    background: var(--leaf-100);
+    color: var(--ink);
+    font-family:'Vazirmatn', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-top: env(safe-area-inset-top,0px);
+    padding-bottom: env(safe-area-inset-bottom,0px);
+    overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit;}
+
+  /* ---------- decorative row pattern ---------- */
+  .comb-strip{
+    height:26px;
+    width:100%;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='26' viewBox='0 0 48 26'><path d='M0 20 C 8 6, 16 6, 24 20 C 32 6, 40 6, 48 20' fill='none' stroke='%23357A38' stroke-opacity='0.35' stroke-width='1.6' stroke-linecap='round'/></svg>");
+    background-size:48px 26px;
+    background-repeat:repeat-x;
+    background-position:center;
+    opacity:.9;
+  }
+
+  /* ---------- header ---------- */
+  header.site-header{
+    position:sticky; top:0; z-index:40;
+    padding-top: env(safe-area-inset-top,0px);
+    background: linear-gradient(180deg, var(--paper) 0%, var(--leaf-100) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    max-width:1180px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; padding:14px 20px;
+  }
+  .brand{display:flex; align-items:center; gap:12px; min-width:0;}
+  .brand-mark{
+    width:46px; height:46px; flex:0 0 auto; border-radius:14px;
+    background: radial-gradient(circle at 32% 28%, #C9EFCB, var(--leaf-500) 55%, var(--leaf-600) 100%);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 6px 14px -6px rgba(53,122,56,0.6);
+    overflow:hidden;
+  }
+  .brand-mark img{width:100%; height:100%; object-fit:cover; border-radius:14px;}
+  .brand-text{min-width:0;}
+  .brand-text .name{
+    font-weight:800; font-size:clamp(14px,3.4vw,18px);
+    color:var(--soil-900); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    letter-spacing:-0.2px;
+  }
+  .brand-text .tag{
+    font-weight:500; font-size:12px; color:var(--ink-soft); margin-top:1px;
+  }
+  .home-btn{
+    display:flex; align-items:center; gap:8px;
+    padding:10px 18px; border-radius:999px;
+    background:var(--soil-900); color:var(--leaf-100);
+    font-weight:700; font-size:14px; flex:0 0 auto;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    box-shadow: 0 10px 20px -10px rgba(30,51,31,0.55);
+  }
+  .home-btn:hover{ background:var(--leaf-600); transform:translateY(-2px); }
+  .home-btn:focus-visible, a:focus-visible, button:focus-visible{
+    outline:3px solid var(--leaf-600); outline-offset:2px; border-radius:8px;
+  }
+  .home-btn svg{width:17px; height:17px;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    max-width:1180px; margin:22px auto 0; padding:0 20px;
+  }
+  .hero-frame{
+    position:relative;
+    border-radius: var(--radius-lg);
+    overflow:hidden;
+    aspect-ratio: 16/8;
+    background: linear-gradient(135deg, var(--leaf-400), var(--leaf-600));
+    box-shadow: var(--shadow);
+    opacity:0;
+    transform: scale(1.03);
+    animation: heroIn .9s cubic-bezier(.2,.8,.2,1) .1s forwards;
+  }
+  @keyframes heroIn{ to{ opacity:1; transform:scale(1);} }
+  .hero-frame img{
+    width:100%; height:100%; object-fit:cover; object-position:center;
+  }
+  .hero-caption{
+    position:absolute; inset-inline-start:0; bottom:0; left:0; right:0;
+    padding: 34px 26px 20px;
+    background: linear-gradient(0deg, rgba(20,38,20,0.72) 0%, rgba(20,38,20,0.0) 100%);
+    color:#fff;
+  }
+  .hero-caption h1{
+    margin:0 0 6px; font-size:clamp(19px,4.2vw,30px); font-weight:800; line-height:1.35;
+  }
+  .hero-caption p{
+    margin:0; font-size:clamp(13px,2.6vw,15px); font-weight:500; color:#DFF3E0; max-width:520px;
+  }
+  .leaf-fly{
+    position:absolute; top:14px; left:18px; width:32px; height:32px;
+    animation: fly 7s ease-in-out infinite;
+    filter: drop-shadow(0 6px 8px rgba(0,0,0,.2));
+  }
+  @keyframes fly{
+    0%,100%{ transform: translate(0,0) rotate(-6deg); }
+    25%{ transform: translate(-12px,-8px) rotate(6deg); }
+    50%{ transform: translate(-4px,6px) rotate(-3deg); }
+    75%{ transform: translate(10px,-6px) rotate(5deg); }
+  }
+
+  /* ---------- section heading ---------- */
+  .section-head{
+    max-width:1180px; margin:56px auto 0; padding:0 24px;
+    text-align:center;
+  }
+  .section-head .eyebrow-icon{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:44px; height:44px; border-radius:50%;
+    background: var(--leaf-200); margin-bottom:14px;
+  }
+  .section-head .eyebrow-icon svg{ width:22px; height:22px; }
+  .section-head h2{
+    margin:0; font-size:clamp(22px,4.4vw,30px); font-weight:800; color:var(--soil-900);
+  }
+  .section-head p{
+    margin:10px auto 0; color:var(--ink-soft); font-weight:500; font-size:14px; max-width:420px;
+  }
+
+  /* ---------- product carousel ---------- */
+  .carousel-wrap{
+    max-width:1180px; margin:34px auto 0; padding:0 20px 10px;
+    display:flex; flex-direction:column; align-items:center;
+  }
+  .carousel{
+    position:relative;
+    width:100%; max-width:340px;
+    height:440px;
+  }
+  .product-card{
+    position:absolute; inset:0;
+    background:var(--paper);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    border:1px solid var(--line);
+    padding:18px;
+    display:flex; flex-direction:column;
+    opacity:0; transform: translateY(14px) scale(.98);
+    pointer-events:none;
+    transition: opacity .55s ease, transform .55s ease;
+  }
+  .product-card.is-active{
+    opacity:1; transform:translateY(0) scale(1);
+    pointer-events:auto;
+    z-index:2;
+  }
+  .product-media{
+    position:relative;
+    border-radius: var(--radius-md);
+    overflow:hidden;
+    aspect-ratio:1/1;
+    background: var(--leaf-200);
+  }
+  .product-media img{ width:100%; height:100%; object-fit:cover; }
+  .price-badge{
+    position:absolute; top:12px; left:12px;
+    background: var(--soil-900); color:var(--leaf-100);
+    font-weight:800; font-size:13px;
+    padding:7px 12px; border-radius:999px;
+    box-shadow: 0 8px 16px -8px rgba(0,0,0,.5);
+    display:flex; align-items:baseline; gap:4px;
+  }
+  .price-badge span{ font-weight:500; font-size:10px; opacity:.85; }
+  .product-info{
+    display:flex; flex-direction:column; align-items:center;
+    text-align:center; flex:1; padding-top:16px;
+  }
+  .product-info h3{
+    margin:0 0 4px; font-size:17px; font-weight:700; color:var(--soil-900);
+  }
+  .product-info .desc{
+    margin:0; font-size:12.5px; color:var(--ink-soft); font-weight:500; line-height:1.6;
+  }
+  .add-cart-btn{
+    margin-top:auto;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    width:100%; padding:13px 14px; border-radius:14px; border:none;
+    background: linear-gradient(90deg, var(--leaf-500), var(--leaf-600));
+    color:#fff; font-weight:700; font-size:14px;
+    cursor:pointer;
+    transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+    box-shadow: 0 12px 22px -12px rgba(53,122,56,0.85);
+  }
+  .add-cart-btn:hover{ transform:translateY(-2px); filter:brightness(1.04); }
+  .add-cart-btn:active{ transform:translateY(0); }
+  .add-cart-btn svg{ width:17px; height:17px; }
+
+  .carousel-dots{
+    display:flex; gap:8px; margin-top:20px;
+  }
+  .dot{
+    width:9px; height:9px; border-radius:50%; border:none; padding:0;
+    background: var(--leaf-200); cursor:pointer;
+    transition: background .25s ease, transform .25s ease, width .25s ease;
+  }
+  .dot.is-active{ background:var(--leaf-600); width:24px; border-radius:6px; }
+
+  /* ---------- details / footer ---------- */
+  footer.site-footer{
+    margin-top:64px;
+    background: var(--leaf-200);
+    border-top:1px solid var(--line);
+    padding: 40px 20px calc(30px + env(safe-area-inset-bottom,0px));
+  }
+  .footer-inner{
+    max-width:1180px; margin:0 auto;
+    display:grid; gap:26px;
+    grid-template-columns: 1.3fr 1fr;
+  }
+  .footer-inner h4{
+    margin:0 0 10px; font-size:14px; font-weight:800; color:var(--soil-900);
+  }
+  .footer-inner p, .footer-inner li{
+    font-size:13px; color:var(--ink-soft); font-weight:500; line-height:1.9;
+  }
+  .footer-inner ul{ list-style:none; margin:0; padding:0; }
+  .footer-inner a{ transition:color .15s ease; }
+  .footer-inner a:hover{ color:var(--leaf-600); }
+  .footer-bottom{
+    max-width:1180px; margin:28px auto 0; padding-top:18px;
+    border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between;
+    font-size:12px; color:var(--ink-soft); font-weight:500;
+  }
+
+  @media (min-width: 720px){
+    .carousel{ max-width:380px; height:470px; }
+  }
+
+  @media (max-width: 460px){
+    .hero-frame{ aspect-ratio: 4/5; }
+    .footer-inner{ grid-template-columns:1fr; text-align:center; }
+    .footer-inner ul{ display:flex; flex-direction:column; align-items:center; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-frame, .leaf-fly, .product-card, .home-btn, .add-cart-btn{ animation:none !important; transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-mark">
+        <img src="https://uploadkon.ir/uploads/68f121_26Screenshot-2026-08-25-141042.png" alt="لوگو زمین‌های کشاورزی میر جلیل هاشمی">
+      </div>
+      <div class="brand-text">
+        <div class="name">زمین‌های کشاورزی فروشگاه میر جلیل هاشمی</div>
+        <div class="tag">زمین های زیبای کشاورزی های مهمان دوست </div>
+      </div>
+    </div>
+    <a class="home-btn" href="https://mjhashemi.ir">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5L12 4l8 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v9a1 1 0 0 0 1 1h4v-6h2v6h4a1 1 0 0 0 1-1v-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      خانه
+    </a>
+  </div>
+  <div class="comb-strip" aria-hidden="true"></div>
+</header>
+
+<!-- ============ HERO / SLIDE ============ -->
+<section class="hero">
+  <div class="hero-frame">
+    <img id="heroImage" src="https://uploadkon.ir/uploads/466421_26file-00000000bb548246b28b44bd756f90b9.jpg" alt="اسلاید اصلی - زمین‌های کشاورزی میر جلیل هاشمی">
+    <svg class="leaf-fly" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 21C7 21 3 17 3 11c0-3 2-7 9-8 7 1 9 5 9 8 0 6-4 10-9 10Z" fill="#2C4A2C"/>
+      <path d="M12 21c0-6 1-10 5-13" stroke="#79C97E" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <div class="hero-caption">
+      <h1>حبوبات اصیل، مستقیم از زمین‌های ما</h1>
+      <p>کشت و برداشت طبیعی، بدون واسطه تا سفره‌ی شما.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="section-head">
+  <span class="eyebrow-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3c2 3 2 6 0 8-2-2-2-5 0-8Z" fill="#357A38"/><path d="M12 11v10" stroke="#357A38" stroke-width="1.8" stroke-linecap="round"/><path d="M12 15c-3-1-5-3-5-6 3 0 5 2 5 6Zm0 0c3-1 5-3 5-6-3 0-5 2-5 6Z" fill="#357A38"/></svg>
+  </span>
+  <h2>محصولات ما</h2>
+  <p>هر چند ثانیه یک‌بار، یکی از محصولات پرطرفدار ما را ببینید.</p>
+</section>
+
+<div class="carousel-wrap">
+  <div class="carousel" id="carousel">
+
+    <article class="product-card is-active" data-index="0">
+      <div class="product-media">
+        <img src="https://uploadkon.ir/uploads/a1a721_26images.jpg" alt="لوبیا چیتی">
+        <div class="price-badge">۴/۰۰۰/۰۰۰<span>ریال </span></div>
+      </div>
+      <div class="product-info">
+        <h3>لوبیا چیتی</h3>
+        <p class="desc">درجه یک، برداشت تازه امسال</p>
+        <a class="add-cart-btn" href="#">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="20" r="1.4" fill="#fff"/><circle cx="17" cy="20" r="1.4" fill="#fff"/><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          افزودن به سبد خرید
+        </a>
+      </div>
+    </article>
+
+    <article class="product-card" data-index="1">
+      <div class="product-media">
+        <img src="#" alt="لوبیا قرمز">
+        <div class="price-badge"><span></span></div>
+      </div>
+      <div class="product-info">
+        <h3>لوبیا قرمز</h3>
+        <p class="desc">دانه‌درشت، عاری از سنگریزه</p>
+        <a class="add-cart-btn" href="#">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="20" r="1.4" fill="#fff"/><circle cx="17" cy="20" r="1.4" fill="#fff"/><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          به زودی 
+        </a>
+      </div>
+    </article>
+
+    <article class="product-card" data-index="1">
+      <div class="product-media">
+        <img src="#" alt="لوبیا قرمز">
+        <div class="price-badge"><span></span></div>
+      </div>
+      <div class="product-info">
+        <h3>لوبیا قرمز</h3>
+        <p class="desc">دانه‌درشت، عاری از سنگریزه</p>
+        <a class="add-cart-btn" href="#">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="20" r="1.4" fill="#fff"/><circle cx="17" cy="20" r="1.4" fill="#fff"/><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          به زودی 
+        </a>
+      </div>
+    </article>
+
+    <article class="product-card" data-index="1">
+      <div class="product-media">
+        <img src="#" alt="لوبیا قرمز">
+        <div class="price-badge"><span></span></div>
+      </div>
+      <div class="product-info">
+        <h3>لوبیا قرمز</h3>
+        <p class="desc">دانه‌درشت، عاری از سنگریزه</p>
+        <a class="add-cart-btn" href="#">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="20" r="1.4" fill="#fff"/><circle cx="17" cy="20" r="1.4" fill="#fff"/><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          به زودی 
+        </a>
+      </div>
+    </article>
+
+    <article class="product-card" data-index="1">
+      <div class="product-media">
+        <img src="#" alt="لوبیا قرمز">
+        <div class="price-badge"><span></span></div>
+      </div>
+      <div class="product-info">
+        <h3>لوبیا قرمز</h3>
+        <p class="desc">دانه‌درشت، عاری از سنگریزه</p>
+        <a class="add-cart-btn" href="#">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="20" r="1.4" fill="#fff"/><circle cx="17" cy="20" r="1.4" fill="#fff"/><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          به زودی 
+        </a>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="carousel-dots" id="dots"></div>
+</div>
+
+<!-- ============ FOOTER / DETAILS ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <h4>زمین‌های کشاورزی فروشگاه میر جلیل هاشمی</h4>
+      <p>عرضه‌کننده حبوبات و محصولات کشاورزی تازه، با تضمین کیفیت و اصالت. تمامی محصولات مستقیم از زمین‌های خودمان برداشت و بسته‌بندی می‌شود.</p>
+    </div>
+    <div>
+      <h4>تماس با ما</h4>
+      <ul>
+        <li>وب‌سایت: mjhashemi.ir</li>
+        <li>پشتیبانی: هر روز ۹ تا ۲۱</li>
+        <li>ارسال به سراسر اردبیل</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© ۱۴۰۴ زمین‌های کشاورزی فروشگاه میر جلیل هاشمی. تمامی حقوق محفوظ است.</span>
+    <span>ساخته‌شده با ♥ برای محصولات اصیل ایرانی</span>
+  </div>
+</footer>
+
+<script>
+  // ---- product carousel, auto-advance every 4s ----
+  (function(){
+    var track = document.getElementById('carousel');
+    var cards = Array.prototype.slice.call(track.querySelectorAll('.product-card'));
+    var dotsWrap = document.getElementById('dots');
+    var current = 0, timer = null;
+
+    cards.forEach(function(_, i){
+      var b = document.createElement('button');
+      b.className = 'dot' + (i === 0 ? ' is-active' : '');
+      b.setAttribute('aria-label', 'نمایش محصول ' + (i + 1));
+      b.addEventListener('click', function(){ goTo(i); restart(); });
+      dotsWrap.appendChild(b);
+    });
+    var dots = Array.prototype.slice.call(dotsWrap.children);
+
+    function goTo(i){
+      cards[current].classList.remove('is-active');
+      dots[current].classList.remove('is-active');
+      current = (i + cards.length) % cards.length;
+      cards[current].classList.add('is-active');
+      dots[current].classList.add('is-active');
+    }
+    function next(){ goTo(current + 1); }
+    function start(){ timer = setInterval(next, 4000); }
+    function stop(){ clearInterval(timer); }
+    function restart(){ stop(); start(); }
+
+    track.addEventListener('mouseenter', stop);
+    track.addEventListener('mouseleave', start);
+    track.addEventListener('touchstart', stop, {passive:true});
+    track.addEventListener('touchend', start, {passive:true});
+
+    start();
+  })();
+</script>
+
+</body>
+</html>
